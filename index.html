@@ -256,6 +256,15 @@ details.fq p{padding:0 2px 18px;color:var(--muted);max-width:65ch}
 .top-t small{font-size:13px;color:var(--muted)}
 .top-go{flex:none;font-weight:800;color:var(--muted);transition:transform .15s}
 
+/* Qualiopi */
+.qbadge{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;max-width:420px;text-align:left;font-family:var(--body);color:#1a1a1a;cursor:pointer;margin-top:22px}
+.qbadge:hover{border-color:var(--ink)}
+.qbadge img{width:130px;height:auto;flex:none;display:block}
+.qbadge span{font-size:12px;line-height:1.45;color:#3d3a36}
+.qbadge b{color:#c8102e;font-weight:700}
+.qb-foot{margin:0 0 8px;flex-basis:100%}
+@media (max-width:420px){.qbadge{flex-direction:column;align-items:flex-start}.qbadge img{width:150px}}
+
 /* Financement */
 .fin{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media (max-width:760px){.fin{grid-template-columns:1fr}}
@@ -599,6 +608,10 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
           <span>60 rue François 1er, 75008 Paris</span>
           <span>Du lundi au vendredi</span>
         </div>
+        <button type="button" class="qbadge qb-contact" data-doc="qualiopi" aria-label="Voir le certificat Qualiopi">
+          <img src="img/qualiopi.png" alt="Qualiopi, processus certifié, République française" width="600" height="332">
+          <span>La certification qualité a été délivrée au titre de la catégorie d'action suivante : <b>actions de formation</b>.</span>
+        </button>
         <a class="btn wa-btn" style="margin-top:20px" href="https://wa.me/33769662424?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations." target="_blank" rel="noopener">Nous écrire sur WhatsApp</a>
         <div class="promise">
           <p class="eyebrow" style="color:var(--orange)">Notre parole</p>
@@ -643,6 +656,10 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
 
 <footer>
   <div class="wrap foot">
+    <button type="button" class="qbadge qb-foot" data-doc="qualiopi" aria-label="Voir le certificat Qualiopi">
+          <img src="img/qualiopi.png" alt="Qualiopi, processus certifié, République française" width="600" height="332">
+          <span>La certification qualité a été délivrée au titre de la catégorie d'action suivante : <b>actions de formation</b>.</span>
+        </button>
     <span><strong style="color:var(--ink)">UPPERFORMA</strong> · Des formations qui vous ressemblent<br>60 rue François 1er, 75008 Paris · 07 69 66 24 24 · contact@upperforma.fr<br>SIRET 992 444 950 00016 · Déclaration d'activité enregistrée sous le n° 11757715175 auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de l'État.<br>Certification Qualiopi délivrée au titre de la catégorie : actions de formation.</span>
     <span class="flinks"><button type="button" data-doc="ml" id="fl-ml">Mentions légales</button><button type="button" data-doc="conf" id="fl-conf">Confidentialité</button><button type="button" data-doc="cgv" id="fl-cgv">CGV</button><button type="button" data-doc="reglement" id="fl-reg">Règlement intérieur</button></span>
   </div>
@@ -859,7 +876,7 @@ const DOCS={
 </div>
 `}
 };
-document.querySelectorAll(".doc,.flinks button").forEach(b=>b.addEventListener("click",()=>{const d=DOCS[b.dataset.doc];openV(d.t,typeof d.h==="function"?d.h():d.h)}));
+document.querySelectorAll(".doc,.flinks button,.qbadge").forEach(b=>b.addEventListener("click",()=>{const d=DOCS[b.dataset.doc];openV(d.t,typeof d.h==="function"?d.h():d.h)}));
 VB.addEventListener("click",e=>{if(e.target.closest("[data-close]"))closeV()});
 function closeV(){V.hidden=true}
 document.getElementById("v-close").addEventListener("click",closeV);
