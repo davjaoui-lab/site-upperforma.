@@ -293,6 +293,19 @@ details.fq p{padding:0 2px 18px;color:var(--muted);max-width:65ch}
 #picks-empty a{color:var(--orange-ink)}
 @media (max-width:760px){.top-i,.res{padding-right:64px}}
 
+/* Équipe */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.team{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.team{grid-template-columns:1fr}}
+.tm{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.tm-ph{aspect-ratio:1/1;max-width:100%;background:var(--bg-alt);display:grid;place-items:center}
+.tm-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.tm-ini{width:120px;height:120px;border-radius:50%;background:var(--orange);color:var(--on-orange);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:40px;font-stretch:112%}
+.tm-b{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
+.tm-b h3{font-size:20px;font-weight:800;font-stretch:112%}
+.tm-r{font-size:13px;font-weight:700;color:var(--orange-ink);letter-spacing:.02em}
+.tm-b p:last-child{font-size:14px;color:var(--muted);line-height:1.6}
+
 /* Financement */
 .fin{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media (max-width:760px){.fin{grid-template-columns:1fr}}
@@ -375,6 +388,7 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
         <a href="#formations">Formations</a>
         <a href="#obligations">En règle ?</a>
         <a href="#financement">Financement</a>
+        <a href="#equipe">Équipe</a>
         <a href="#infos">Infos pratiques</a>
         <a href="#documents">Documents</a>
         <a href="#faq">FAQ</a>
@@ -388,6 +402,7 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
       <a href="#financement">Financement</a>
       <a href="#deroulement">Déroulement</a>
       <a href="#engagements">Engagements</a>
+      <a href="#equipe">Équipe</a>
       <a href="#infos">Infos pratiques</a>
       <a href="#documents">Documents</a>
       <a href="#faq">FAQ</a>
@@ -550,6 +565,17 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
         <div><h3>Un interlocuteur unique</h3><p>La même personne vous suit du premier appel jusqu'à l'attestation.</p></div>
         <div><h3>Des horaires adaptés</h3><p>Sessions calées sur vos jours de fermeture ou vos heures creuses.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="equipe">
+    <div class="wrap">
+      <div class="sec-head"><div>
+        <p class="eyebrow">Notre équipe</p>
+        <h2 style="margin-top:8px">Des professionnels du métier pour vous former</h2>
+        <p>Chaque formation est animée par un formateur expérimenté dans le domaine concerné.</p>
+      </div></div>
+      <div class="team"><article class="tm"><div class="tm-ph"><span class="tm-ini" aria-hidden="true">AL</span></div><div class="tm-b"><h3>Amina L.</h3><p class="tm-r">Présidente & formatrice en service et techniques de restauration</p><p>Elle assure la gestion administrative des formations (convocations, conventions, feuilles d'émargement, attestations), le suivi des dossiers et la coordination des plannings. Elle est aussi la référente handicap d'Upperforma.</p></div></article><article class="tm"><div class="tm-ph"><img src="img/equipe/jean-jacques.jpg" alt="Jean-Jacques B." width="600" height="600" loading="lazy"></div><div class="tm-b"><h3>Jean-Jacques B.</h3><p class="tm-r">Chef cuisinier & formateur</p><p>Ancien étoilé, diplômé d'école hôtelière, Jean-Jacques cumule 43 ans d'expérience en cuisine et forme les professionnels depuis plus de 10 ans. Membre des Toques Françaises et des Toques Blanches Internationales, il a remporté le 2e prix d'argent du Geste d'Or. Il transmet l'exigence des grandes maisons avec un sens concret du terrain.</p></div></article><article class="tm"><div class="tm-ph"><img src="img/equipe/margaux.jpg" alt="Margaux T." width="600" height="600" loading="lazy"></div><div class="tm-b"><h3>Margaux T.</h3><p class="tm-r">Cheffe pâtissière & formatrice</p><p>Cheffe pâtissière passionnée par son métier, Margaux associe exigence technique, créativité et sens du détail. Aujourd'hui formatrice, elle partage son savoir-faire avec une approche pédagogique fondée sur la compréhension des techniques, la rigueur et le plaisir de transmettre.</p></div></article><article class="tm"><div class="tm-ph"><span class="tm-ini" aria-hidden="true">PB</span></div><div class="tm-b"><h3>Patrice B.</h3><p class="tm-r">Formateur pâtisserie, boulangerie & hygiène</p><p>Spécialisé en pâtisserie, snacking, boulangerie et hygiène, Patrice transmet son savoir-faire artisanal et ses compétences techniques. Il conçoit et anime des formations alliant pratique et théorie, dans le respect des normes d'hygiène et de sécurité alimentaire.</p></div></article><article class="tm"><div class="tm-ph"><span class="tm-ini" aria-hidden="true">ÉN</span></div><div class="tm-b"><h3>Éléonore N.</h3><p class="tm-r">Formatrice web, design & bureautique</p><p>UI/UX designer avec plus de 15 ans d'expérience, Éléonore est spécialisée dans la conception de sites web et d'interfaces intuitives. Elle accompagne les professionnels sur WordPress, Joomla ou PrestaShop, et anime des formations de bureautique (Word, Excel, PowerPoint).</p></div></article><article class="tm"><div class="tm-ph"><span class="tm-ini" aria-hidden="true">OS</span></div><div class="tm-b"><h3>Olivier S.</h3><p class="tm-r">Formateur bar, mixologie & service</p><p>Fort de 18 ans d'expérience en hôtellerie-restauration, Olivier est diplômé des lycées hôteliers parisiens Médéric et Guillaume Tirel. Il a exercé dans tous les univers du métier : clubs privés, hôtels de luxe, brasseries haut de gamme, pubs et restaurants. Ancien barman exécutif au sein du Groupe Bertrand, il forme les professionnels depuis huit ans et a accompagné plus de 100 restaurants, avec un savoir-faire concret issu du terrain.</p></div></article></div>
     </div>
   </section>
 
