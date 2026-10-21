@@ -240,6 +240,22 @@ details.fq p{padding:0 2px 18px;color:var(--muted);max-width:65ch}
 .flinks button{background:none;border:0;padding:0;font:inherit;color:var(--muted);text-decoration:underline;cursor:pointer}
 .flinks button:hover{color:var(--ink)}
 
+/* Top formations */
+.top-band{padding-block:48px;background:var(--bg)}
+.top-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:20px}
+.top-all{font-weight:700;color:var(--orange-ink);text-decoration:none}
+.top-all:hover{text-decoration:underline}
+.top-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:32px;border-top:2px solid var(--ink)}
+@media (max-width:760px){.top-list{grid-template-columns:1fr}}
+.top-i{width:100%;display:flex;align-items:center;gap:14px;background:none;border:0;border-bottom:1px solid var(--line);padding:16px 4px;text-align:left;font-family:var(--body);color:var(--ink);cursor:pointer}
+.top-i:hover{background:var(--bg-alt)}
+.top-i:hover .top-go{color:var(--orange-ink);transform:translateX(3px)}
+.top-n{flex:none;font-family:var(--display);font-weight:900;font-stretch:125%;font-size:26px;color:var(--orange);width:44px;font-variant-numeric:tabular-nums}
+.top-t{flex:1;min-width:0;display:grid;gap:2px}
+.top-t b{font-size:17px}
+.top-t small{font-size:13px;color:var(--muted)}
+.top-go{flex:none;font-weight:800;color:var(--muted);transition:transform .15s}
+
 /* Financement */
 .fin{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media (max-width:760px){.fin{grid-template-columns:1fr}}
@@ -361,6 +377,16 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
         <nav class="ulist" aria-label="Univers de formation"><a href="#formations" data-pick="Métiers de bouche"><span>Métiers de bouche</span><b>108</b></a><a href="#formations" data-pick="Services aux entreprises"><span>Services aux entreprises</span><b>141</b></a><a href="#formations" data-pick="Commerces"><span>Commerces</span><b>148</b></a><a href="#formations" data-pick="Esthétique et bien-être"><span>Esthétique et bien-être</span><b>31</b></a><a href="#formations" data-pick="Ingénierie et conseil"><span>Ingénierie et conseil</span><b>91</b></a><a href="#formations" data-pick="Divertissement"><span>Divertissement</span><b>25</b></a></nav>
         <p class="fiche-note">Touchez un univers pour voir les métiers et les formations.</p>
       </div>
+    </div>
+  </section>
+
+  <section id="best" class="top-band">
+    <div class="wrap">
+      <div class="top-head">
+        <div><p class="eyebrow">Classement de nos ventes</p><h2 style="margin-top:8px">Les formations les plus demandées</h2></div>
+        <a href="#formations" class="top-all">Voir tout le catalogue →</a>
+      </div>
+      <ol class="top-list"><li><button type="button" class="top-i" data-q="plan de maîtrise sanitaire"><span class="top-n">01</span><span class="top-t"><b>Plan de maîtrise sanitaire (PMS)</b><small>Restauration · Métiers de bouche</small></span><em class="dur">14 h</em><span class="top-go" aria-hidden="true">→</span></button></li><li><button type="button" class="top-i" data-q="pâtisserie"><span class="top-n">02</span><span class="top-t"><b>Pâtisserie</b><small>Restauration · Boulangerie</small></span><em class="dur">14 à 21 h</em><span class="top-go" aria-hidden="true">→</span></button></li><li><button type="button" class="top-i" data-q="cuisine créative"><span class="top-n">03</span><span class="top-t"><b>Cuisine créative</b><small>Restauration</small></span><em class="dur">21 h</em><span class="top-go" aria-hidden="true">→</span></button></li><li><button type="button" class="top-i" data-q="mixologie"><span class="top-n">04</span><span class="top-t"><b>Mixologie & cocktails</b><small>Bar · Restauration</small></span><em class="dur">14 à 21 h</em><span class="top-go" aria-hidden="true">→</span></button></li><li><button type="button" class="top-i" data-q="l’IA"><span class="top-n">05</span><span class="top-t"><b>Intelligence artificielle</b><small>Tous secteurs</small></span><em class="dur">7 à 21 h</em><span class="top-go" aria-hidden="true">→</span></button></li><li><button type="button" class="top-i" data-q="œnologie"><span class="top-n">06</span><span class="top-t"><b>Sommellerie & œnologie</b><small>Restauration · Caviste</small></span><em class="dur">14 à 21 h</em><span class="top-go" aria-hidden="true">→</span></button></li><li><button type="button" class="top-i" data-q="barista"><span class="top-n">07</span><span class="top-t"><b>Barista</b><small>Café · Restauration</small></span><em class="dur">14 à 21 h</em><span class="top-go" aria-hidden="true">→</span></button></li></ol>
     </div>
   </section>
 
@@ -627,7 +653,7 @@ const CAT=[{"u":"Métiers de bouche","m":"Restauration traditionnelle","o":"Form
 const UNIV=[...new Set(CAT.map(m=>m.u))];
 const grid=document.getElementById("grid"),sel=document.getElementById("choix"),res=document.getElementById("results"),q=document.getElementById("q"),univ=document.getElementById("univ");
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const dur=(t,m)=>{const n=norm(t);if(/situations d.urgence/.test(n))return "7 à 14 h";if(/premiere intervention/.test(n))return "4 h";if(/\bsst\b|sauveteur secouriste/.test(n))return "14 h";if(/haccp|hygiene alimentaire|normes d.hygiene|reglementation sanitaire/.test(n))return /^Restauration/.test(m||"")?"14 h":"7 à 14 h";return "7 à 21 h"};
+const dur=(t,m)=>{const n=norm(t);if(/plan de maitrise sanitaire|\bpms\b/.test(n))return "14 h";if(/cuisine creative/.test(n))return "21 h";if(/barista|mixologie|cocktail|oenologie|œnologie|sommel|patisserie de restauration/.test(n))return "14 à 21 h";if(/situations d.urgence/.test(n))return "7 à 14 h";if(/premiere intervention/.test(n))return "4 h";if(/\bsst\b|sauveteur secouriste/.test(n))return "14 h";if(/haccp|hygiene alimentaire|normes d.hygiene|reglementation sanitaire/.test(n))return /^Restauration/.test(m||"")?"14 h":"7 à 14 h";return "7 à 21 h"};
 const count=m=>m.s.reduce((n,x)=>n+x[1].length,0);
 document.getElementById("c-total").textContent=CAT.reduce((n,m)=>n+count(m),0);
 document.getElementById("c-met").textContent=CAT.length;
@@ -655,6 +681,7 @@ function search(){
 renderGrid();
 univ.addEventListener("click",e=>{const b=e.target.closest("button");if(b)pickU(b.dataset.u)});
 q.addEventListener("input",search);
+document.querySelectorAll(".top-i").forEach(b=>b.addEventListener("click",()=>{q.value=b.dataset.q;search();document.getElementById("formations").scrollIntoView({behavior:"smooth"})}));
 document.querySelectorAll(".kw").forEach(a=>a.addEventListener("click",()=>{q.value=a.dataset.q;search()}));
 const V=document.getElementById("viewer"),VB=document.getElementById("v-body");
 function openV(title,html){document.getElementById("v-title").textContent=title;VB.innerHTML=html;VB.scrollTop=0;V.hidden=false;document.getElementById("v-close").focus()}
