@@ -11,6 +11,15 @@
 <meta property="og:title" content="Upperforma · Formation professionnelle à Paris, certifié Qualiopi">
 <meta property="og:description" content="Formations en entreprise à Paris et partout en France : hygiène HACCP, SST, EPI, cuisine, commerce, bureautique. Finançables par votre OPCO.">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.upperforma.fr/">
+<meta property="og:site_name" content="UPPERFORMA">
+<meta property="og:image" content="https://www.upperforma.fr/img/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.upperforma.fr/img/partage.jpg">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "UPPERFORMA", "description": "Organisme de formation professionnelle certifié Qualiopi à Paris : formations en entreprise (hygiène alimentaire HACCP, SST, EPI, cuisine, commerce, bureautique), finançables par les OPCO.", "url": "https://www.upperforma.fr", "email": "contact@upperforma.fr", "telephone": "+33769662424", "address": {"@type": "PostalAddress", "streetAddress": "60 rue François 1er", "postalCode": "75008", "addressLocality": "Paris", "addressCountry": "FR"}, "areaServed": ["Paris", "Île-de-France", "France"], "hasCredential": "Certification Qualiopi - actions de formation"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "La formation hygiène alimentaire est-elle obligatoire ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui pour la restauration commerciale : restaurants, restauration rapide, vente à emporter et cafétérias doivent compter au moins une personne formée à l'hygiène alimentaire (14 h), sauf diplôme ou expérience reconnus. Pour les boulangeries, boucheries, épiceries et traiteurs, elle est vivement conseillée, en 7 à 14 h."}}, {"@type": "Question", "name": "Où se déroulent vos formations ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans vos locaux à Paris, en Île-de-France et partout en France, sur vos équipements. Certaines formations sont aussi possibles à distance."}}, {"@type": "Question", "name": "Mes formations peuvent-elles être financées ?", "acceptedAnswer": {"@type": "Answer", "text": "Upperforma est certifié Qualiopi : nos formations sont finançables par votre OPCO, selon vos droits et son budget. Nous vous remettons le programme, le devis et la convention pour déposer votre demande avant la formation."}}, {"@type": "Question", "name": "Quel est le délai pour démarrer une formation ?", "acceptedAnswer": {"@type": "Answer", "text": "Nos formations sont accessibles sous 7 jours ouvrés minimum après l'analyse de votre besoin et la signature de la convention. En cas de financement OPCO, le démarrage dépend aussi de son accord."}}, {"@type": "Question", "name": "Combien coûte une formation ?", "acceptedAnswer": {"@type": "Answer", "text": "En inter-entreprises, 490 € HT par participant et par jour. En intra-entreprise, le tarif est établi sur devis selon le nombre de participants, le lieu et la personnalisation du programme."}}, {"@type": "Question", "name": "Combien de temps durent les formations SST et EPI ?", "acceptedAnswer": {"@type": "Answer", "text": "La formation Sauveteur secouriste du travail (SST) dure 14 h. La formation Équipier de première intervention (EPI) dure 4 h, et 7 à 14 h avec la gestion des situations d'urgence."}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -264,6 +273,25 @@ details.fq p{padding:0 2px 18px;color:var(--muted);max-width:65ch}
 .qbadge b{color:#c8102e;font-weight:700}
 .qb-foot{margin:0 0 8px;flex-basis:100%}
 @media (max-width:420px){.qbadge{flex-direction:column;align-items:flex-start}.qbadge img{width:150px}}
+
+/* Mon devis */
+.add{margin:0 0 14px;font:700 14px var(--body);padding:9px 14px;border-radius:999px;border:1.5px solid var(--orange);background:var(--card);color:var(--orange-ink);cursor:pointer}
+.add:hover{background:var(--bg-alt)}
+.add.on{background:var(--orange);color:var(--on-orange)}
+.cartbtn{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:25;display:flex;align-items:center;gap:8px;font:700 15px var(--body);background:var(--ink);color:#fff;border:0;border-radius:999px;padding:12px 18px;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer}
+.cartbtn b{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:999px;background:var(--orange);color:var(--on-orange);font-size:13px;font-variant-numeric:tabular-nums}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--ink);color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.picks{display:grid;gap:8px}
+.picks-lbl{font-size:13px;font-weight:700}
+#picks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+#picks li{display:flex;align-items:center;gap:10px;background:var(--bg-alt);border-radius:10px;padding:10px 12px}
+#picks li span{flex:1;min-width:0;display:grid}
+#picks li b{font-size:14px}
+#picks li small{font-size:12px;color:var(--muted)}
+#picks li button{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;cursor:pointer}
+#picks-empty{font-size:13px;color:var(--muted);margin:0}
+#picks-empty a{color:var(--orange-ink)}
+@media (max-width:760px){.top-i,.res{padding-right:64px}}
 
 /* Financement */
 .fin{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -631,9 +659,12 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
         <label>Établissement<input id="etab" name="Etablissement" required></label>
         <label>Téléphone<input id="tel" name="Telephone" type="tel" required autocomplete="tel"></label>
         <label>E-mail (facultatif)<input id="mail" name="email" type="email" autocomplete="email"></label>
-        <label class="full">Formation souhaitée
-          <select id="choix" name="Formation"><option>Je ne sais pas encore</option></select>
-        </label>
+        <div class="full picks">
+          <span class="picks-lbl">Formations souhaitées</span>
+          <ul id="picks"></ul>
+          <p id="picks-empty">Aucune formation ajoutée. Touchez « + Ajouter au devis » dans le <a href="#formations">catalogue</a>, ou décrivez simplement votre besoin ci-dessous.</p>
+          <input type="hidden" name="Formations" id="choix" value="Non précisé">
+        </div>
         <label class="full">Votre besoin<textarea id="besoin" name="Besoin" placeholder="Nombre de salariés, type d'établissement…"></textarea></label>
         <button class="btn btn-primary full" type="submit" id="send" style="justify-content:center">Être rappelé</button>
         <p class="err" id="err" hidden>L'envoi n'a pas fonctionné. Appelez-nous au 07 69 66 24 24 ou écrivez sur WhatsApp.</p>
@@ -649,6 +680,8 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
   </section>
 </main>
 
+<button type="button" class="cartbtn" id="cartbtn" hidden><span aria-hidden="true">☑</span> Mon devis <b id="cart-n">0</b></button>
+<div class="toast" id="toast" hidden role="status"></div>
 <div class="float">
   <a class="wa" href="https://wa.me/33769662424?text=Bonjour%2C%20je%20souhaite%20des%20informations%20sur%20vos%20formations." target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.5-.3z"/></svg></a>
   <a class="call" href="tel:+33769662424" aria-label="Nous appeler au 07 69 66 24 24"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
@@ -704,11 +737,29 @@ const V=document.getElementById("viewer"),VB=document.getElementById("v-body");
 function openV(title,html){document.getElementById("v-title").textContent=title;VB.innerHTML=html;VB.scrollTop=0;V.hidden=false;document.getElementById("v-close").focus()}
 function openMetier(i,open){
   const m=CAT[i];
-  openV(m.m,`<p class="m-obj">${esc(m.o)}</p><p class="m-obj" style="font-size:13px">Durée indicative de 7 à 21 h, adaptée à vos besoins lors de l\'analyse préalable. Durées fixes : SST et hygiène alimentaire en restauration commerciale 14 h, équipier de première intervention (EPI) 4 h.</p>`+m.s.map(x=>`<p class="m-sec">${esc(x[0])}</p>`+x[1].map(f=>`<details class="fm"${f[0]===open?" open":""}><summary><span>${esc(f[0])}</span><em class="dur">${dur(f[0],m.m)}</em></summary><ul>${f[1].map(o=>`<li>${esc(o)}</li>`).join("")}</ul><a href="#devis" class="ask" data-t="${esc(f[0])}">Demander un devis →</a></details>`).join("")).join(""));
+  openV(m.m,`<p class="m-obj">${esc(m.o)}</p><p class="m-obj" style="font-size:13px">Durée indicative de 7 à 21 h, adaptée à vos besoins lors de l\'analyse préalable. Durées fixes : SST et hygiène alimentaire en restauration commerciale 14 h, équipier de première intervention (EPI) 4 h.</p>`+m.s.map(x=>`<p class="m-sec">${esc(x[0])}</p>`+x[1].map(f=>`<details class="fm"${f[0]===open?" open":""}><summary><span>${inCart(f[0])?"✓ ":""}${esc(f[0])}</span><em class="dur">${dur(f[0],m.m)}</em></summary><ul>${f[1].map(o=>`<li>${esc(o)}</li>`).join("")}</ul><button type="button" class="add${inCart(f[0])?" on":""}" data-t="${esc(f[0])}" data-m="${esc(m.m)}" data-d="${dur(f[0],m.m)}">${inCart(f[0])?"✓ Ajouté au devis":"+ Ajouter au devis"}</button></details>`).join("")).join(""));
 }
 grid.addEventListener("click",e=>{const b=e.target.closest(".card");if(b)openMetier(+b.dataset.i)});
 res.addEventListener("click",e=>{const b=e.target.closest(".res");if(b)openMetier(+b.dataset.i,b.dataset.t)});
-VB.addEventListener("click",e=>{const a=e.target.closest("a.ask");if(!a)return;closeV();let o=[...sel.options].find(x=>x.value===a.dataset.t);if(!o){o=new Option(a.dataset.t,a.dataset.t);sel.appendChild(o)}sel.value=a.dataset.t});
+let cart=[];try{cart=JSON.parse(localStorage.getItem("uf-devis")||"[]")}catch(_){cart=[]}
+function inCart(t){return cart.some(c=>c.t===t)}
+function saveCart(){try{localStorage.setItem("uf-devis",JSON.stringify(cart))}catch(_){}}
+function renderCart(){
+  const n=cart.length,ul=document.getElementById("picks");
+  document.getElementById("cart-n").textContent=n;document.getElementById("cartbtn").hidden=n===0;
+  document.getElementById("picks-empty").hidden=n>0;
+  ul.innerHTML=cart.map((c,i)=>`<li><span><b>${esc(c.t)}</b><small>${esc(c.m)} · ${esc(c.d)}</small></span><button type="button" data-i="${i}" aria-label="Retirer ${esc(c.t)}">×</button></li>`).join("");
+  sel.value=n?cart.map(c=>`${c.t} (${c.m}, ${c.d})`).join(" ; "):"Non précisé";
+}
+function toast(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>el.hidden=true,1800)}
+VB.addEventListener("click",e=>{const b=e.target.closest("button.add");if(!b)return;e.preventDefault();
+  const t=b.dataset.t;
+  if(inCart(t)){cart=cart.filter(c=>c.t!==t);b.classList.remove("on");b.textContent="+ Ajouter au devis";toast("Retiré du devis")}
+  else{cart.push({t,m:b.dataset.m,d:b.dataset.d});b.classList.add("on");b.textContent="✓ Ajouté au devis";toast("Ajouté à votre devis")}
+  saveCart();renderCart()});
+document.getElementById("picks").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;cart.splice(+b.dataset.i,1);saveCart();renderCart()});
+document.getElementById("cartbtn").addEventListener("click",()=>{closeV();document.getElementById("devis").scrollIntoView({behavior:"smooth"})});
+renderCart();
 const st={type:"resto",alcool:"oui",sal:"oui"};
 const R=t=>t==="resto"||t==="rapide", FOOD=t=>R(t)||t==="alim", ALC=s=>s.alcool==="oui"&&!["boutique","bureau"].includes(s.type);
 const OB=[
@@ -897,7 +948,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeV()});
       const res=await fetch("https://formsubmit.co/ajax/contact@upperforma.fr",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
       const j=await res.json().catch(()=>({}));
       if(!res.ok||String(j.success)==="false")throw 0;
-      done(data.Nom,data.Telephone);f.reset();
+      done(data.Nom,data.Telephone);f.reset();cart=[];saveCart();renderCart();
     }catch(_){err.hidden=false}
     finally{btn.disabled=false;btn.textContent="Être rappelé"}
   });
