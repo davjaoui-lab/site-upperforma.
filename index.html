@@ -292,7 +292,16 @@ label{display:grid;gap:6px;font-size:13px;font-weight:700}
 input,select,textarea{font:500 15px var(--body);padding:12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
 textarea{min-height:96px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange)}
-.ok{grid-column:1/-1;background:var(--bg-alt);border-radius:10px;padding:12px;font-size:14px;font-weight:600}
+.err{grid-column:1/-1;background:#fdecea;color:#8a1c12;border-radius:10px;padding:12px;font-size:14px;font-weight:600}
+.sent{background:var(--card);color:var(--ink);border-radius:16px;padding:36px 24px;text-align:center;box-shadow:0 10px 30px rgba(17,17,17,.08);display:grid;gap:12px;justify-items:center;animation:pop .35s ease-out}
+.sent[hidden]{display:none}
+.sent-ic{width:64px;height:64px;border-radius:50%;background:var(--orange);color:var(--on-orange);display:grid;place-items:center;font-size:34px;font-weight:900}
+.sent h3{font-size:26px;font-weight:900;font-stretch:112%}
+.sent p{color:var(--muted);max-width:32em}
+.sent-sub{font-size:14px}
+#send[disabled]{opacity:.7;cursor:wait}
+@keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.sent{animation:none}}
 
 footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
@@ -587,9 +596,16 @@ footer{padding-block:40px 110px;font-size:14px;color:var(--muted);border-top:1px
           <select id="choix" name="Formation"><option>Je ne sais pas encore</option></select>
         </label>
         <label class="full">Votre besoin<textarea id="besoin" name="Besoin" placeholder="Nombre de salariés, type d'établissement…"></textarea></label>
-        <button class="btn btn-primary full" type="submit" style="justify-content:center">Être rappelé</button>
-        <p class="ok" id="ok" hidden>Merci, votre demande a bien été envoyée. Nous vous rappelons très vite.</p>
+        <button class="btn btn-primary full" type="submit" id="send" style="justify-content:center">Être rappelé</button>
+        <p class="err" id="err" hidden>L'envoi n'a pas fonctionné. Appelez-nous au 07 69 66 24 24 ou écrivez sur WhatsApp.</p>
       </form>
+      <div class="sent" id="ok" hidden role="status" tabindex="-1">
+        <div class="sent-ic" aria-hidden="true">✓</div>
+        <h3>Demande bien envoyée</h3>
+        <p id="ok-msg">Merci ! Un conseiller Upperforma vous rappelle très vite, du lundi au vendredi.</p>
+        <p class="sent-sub">Besoin d'une réponse immédiate ? Appelez le <b>07 69 66 24 24</b>.</p>
+        <button type="button" class="btn btn-ghost" id="again">Envoyer une autre demande</button>
+      </div>
     </div>
   </section>
 </main>
@@ -822,7 +838,27 @@ function closeV(){V.hidden=true}
 document.getElementById("v-close").addEventListener("click",closeV);
 V.addEventListener("click",e=>{if(e.target===V)closeV()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeV()});
-if(location.hash==="#merci"){document.getElementById("ok").hidden=false;document.getElementById("devis").scrollIntoView()}
+(function(){
+  const f=document.getElementById("form-devis"),ok=document.getElementById("ok"),btn=document.getElementById("send"),err=document.getElementById("err");
+  function done(nom,tel){f.hidden=true;ok.hidden=false;
+    document.getElementById("ok-msg").textContent="Merci"+(nom?" "+nom.split(" ")[0]:"")+" ! Un conseiller Upperforma vous rappelle très vite"+(tel?" au "+tel:"")+", du lundi au vendredi.";
+    ok.scrollIntoView({behavior:"smooth",block:"center"});ok.focus({preventScroll:true})}
+  if(location.hash==="#merci")done();
+  f.addEventListener("submit",async e=>{
+    e.preventDefault();err.hidden=true;
+    if(!f.reportValidity())return;
+    btn.disabled=true;btn.textContent="Envoi en cours…";
+    const data=Object.fromEntries(new FormData(f));
+    try{
+      const res=await fetch("https://formsubmit.co/ajax/contact@upperforma.fr",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});
+      const j=await res.json().catch(()=>({}));
+      if(!res.ok||String(j.success)==="false")throw 0;
+      done(data.Nom,data.Telephone);f.reset();
+    }catch(_){err.hidden=false}
+    finally{btn.disabled=false;btn.textContent="Être rappelé"}
+  });
+  document.getElementById("again").addEventListener("click",()=>{ok.hidden=true;f.hidden=false;f.scrollIntoView({behavior:"smooth",block:"start"})});
+})();
 </script>
 
 </body>
